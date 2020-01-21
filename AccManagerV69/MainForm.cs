@@ -153,19 +153,21 @@ namespace AccManagerV69
             }
         }
 
-        public static void Login_steam(string steam_location, string username, string password)
+        public async void Login_steam(string steam_location, string username, string password)
         {
             Process.Start(steam_location, " -login " + username + " " + password);
+            await Task.Delay(280);
+            statuspendinglabel.Text = "Logged in!";
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            statuspendinglabel.Text = "Logging in...";
             if (IsProcessRunning("Steam"))
             {
                 Process.GetProcessesByName("Steam")[0].Kill();
             }
             Login_steam($@"{Settings.steamdir}\Steam.exe", usernametextBox.Text, passwordtextBox.Text);
-            statuspendinglabel.Text = "Logged in!";
         }
 
         private void deleteaccountButton_Click(object sender, EventArgs e)

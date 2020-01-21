@@ -9,8 +9,6 @@ namespace AccManagerV69
 {
     public class Settings
     {
-        public static string encryption_key = "J!IUDIUHIUERIUFIERFUOERUHFEOROWPED(&^&*()";
-
         private static string folderdirname = "pastedv2";
 
         public static string settingsdir = $"C:/{folderdirname}";
@@ -22,6 +20,23 @@ namespace AccManagerV69
         public static string steamdir = GetSteamDir();
         public static bool hidepassword = GetHidePassword();
         public static int hidepassworddelay = GetHidePasswordDelay();
+        public static string encryption_key = GetEncryptionKey(); //J!IUDIUHIUERIUFIERFUOERUHFEOROWPED(&^&*()
+
+        private static string[] DefaultSettings = { "false", "500", "J!IUDIUHIUERIUFIERFUOERUHFEOROWPED(&^&*()" };
+
+        static string GetEncryptionKey()
+        {
+            if (File.Exists(settingsfile))
+            {
+                string encryptionkey = File.ReadAllLines(settingsfile)[2];
+                return encryptionkey;
+            }
+            else
+            {
+                File.WriteAllLines(settingsfile, DefaultSettings);
+                return GetEncryptionKey();
+            }
+        }
 
         static bool GetHidePassword()
         {
@@ -32,8 +47,8 @@ namespace AccManagerV69
             }
             else
             {
-                File.WriteAllLines(settingsfile, new string[] { "false", "500" } );
-                return false;
+                File.WriteAllLines(settingsfile, DefaultSettings);
+                return GetHidePassword();
             }
         }
 
@@ -45,8 +60,8 @@ namespace AccManagerV69
             }
             else
             {
-                File.WriteAllLines(settingsfile, new string[] { "false", "500" });
-                return 500;
+                File.WriteAllLines(settingsfile, DefaultSettings);
+                return GetHidePasswordDelay();
             }
         }
 
