@@ -33,6 +33,9 @@
             this.delaytextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.delaylabel = new System.Windows.Forms.Label();
+            this.encryptionpasswordlabel = new System.Windows.Forms.Label();
+            this.encryptionpasswordtextBox = new System.Windows.Forms.TextBox();
+            this.defaultsettingsbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hidepasswordcheckBox
@@ -56,7 +59,7 @@
             this.delaytextBox.ForeColor = System.Drawing.Color.White;
             this.delaytextBox.Location = new System.Drawing.Point(12, 51);
             this.delaytextBox.Name = "delaytextBox";
-            this.delaytextBox.Size = new System.Drawing.Size(144, 20);
+            this.delaytextBox.Size = new System.Drawing.Size(153, 20);
             this.delaytextBox.TabIndex = 27;
             // 
             // okButton
@@ -65,7 +68,7 @@
             this.okButton.FlatAppearance.BorderSize = 0;
             this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.okButton.ForeColor = System.Drawing.Color.Green;
-            this.okButton.Location = new System.Drawing.Point(75, 86);
+            this.okButton.Location = new System.Drawing.Point(88, 128);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(48, 23);
             this.okButton.TabIndex = 29;
@@ -79,18 +82,58 @@
             this.delaylabel.BackColor = System.Drawing.Color.Transparent;
             this.delaylabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delaylabel.ForeColor = System.Drawing.Color.White;
-            this.delaylabel.Location = new System.Drawing.Point(12, 34);
+            this.delaylabel.Location = new System.Drawing.Point(6, 33);
             this.delaylabel.Name = "delaylabel";
             this.delaylabel.Size = new System.Drawing.Size(76, 15);
             this.delaylabel.TabIndex = 30;
             this.delaylabel.Text = "Delay (ms)";
+            // 
+            // encryptionpasswordlabel
+            // 
+            this.encryptionpasswordlabel.AutoSize = true;
+            this.encryptionpasswordlabel.BackColor = System.Drawing.Color.Transparent;
+            this.encryptionpasswordlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptionpasswordlabel.ForeColor = System.Drawing.Color.White;
+            this.encryptionpasswordlabel.Location = new System.Drawing.Point(6, 83);
+            this.encryptionpasswordlabel.Name = "encryptionpasswordlabel";
+            this.encryptionpasswordlabel.Size = new System.Drawing.Size(140, 15);
+            this.encryptionpasswordlabel.TabIndex = 32;
+            this.encryptionpasswordlabel.Text = "Encryption Password";
+            // 
+            // encryptionpasswordtextBox
+            // 
+            this.encryptionpasswordtextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.encryptionpasswordtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.encryptionpasswordtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptionpasswordtextBox.ForeColor = System.Drawing.Color.White;
+            this.encryptionpasswordtextBox.Location = new System.Drawing.Point(12, 101);
+            this.encryptionpasswordtextBox.Name = "encryptionpasswordtextBox";
+            this.encryptionpasswordtextBox.Size = new System.Drawing.Size(153, 20);
+            this.encryptionpasswordtextBox.TabIndex = 31;
+            // 
+            // defaultsettingsbutton
+            // 
+            this.defaultsettingsbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.defaultsettingsbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.defaultsettingsbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.defaultsettingsbutton.ForeColor = System.Drawing.Color.White;
+            this.defaultsettingsbutton.Location = new System.Drawing.Point(25, 128);
+            this.defaultsettingsbutton.Name = "defaultsettingsbutton";
+            this.defaultsettingsbutton.Size = new System.Drawing.Size(57, 23);
+            this.defaultsettingsbutton.TabIndex = 34;
+            this.defaultsettingsbutton.Text = "Default";
+            this.defaultsettingsbutton.UseVisualStyleBackColor = false;
+            this.defaultsettingsbutton.Click += new System.EventHandler(this.defaultsettingsbutton_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(201, 121);
+            this.ClientSize = new System.Drawing.Size(174, 163);
+            this.Controls.Add(this.defaultsettingsbutton);
+            this.Controls.Add(this.encryptionpasswordlabel);
+            this.Controls.Add(this.encryptionpasswordtextBox);
             this.Controls.Add(this.delaylabel);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.delaytextBox);
@@ -114,5 +157,8 @@
         private System.Windows.Forms.TextBox delaytextBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label delaylabel;
+        private System.Windows.Forms.Label encryptionpasswordlabel;
+        private System.Windows.Forms.TextBox encryptionpasswordtextBox;
+        private System.Windows.Forms.Button defaultsettingsbutton;
     }
 }

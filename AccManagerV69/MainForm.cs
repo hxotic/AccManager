@@ -156,7 +156,6 @@ namespace AccManagerV69
         public async void Login_steam(string steam_location, string username, string password)
         {
             Process.Start(steam_location, " -login " + username + " " + password);
-            await Task.Delay(280);
             statuspendinglabel.Text = "Logged in!";
         }
 

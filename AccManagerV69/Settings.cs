@@ -11,6 +11,8 @@ namespace AccManagerV69
     {
         private static string folderdirname = "pastedv2";
 
+        public static string[] DefaultSettings = { "false", "500", "J!IUDIUHIUERIUFIERFUOERUHFEOROWPED(&^&*()" };
+
         public static string settingsdir = $"C:/{folderdirname}";
         public static string nicknamesloc = $"{settingsdir}/Nicknames.txt";
         public static string usernamesloc = $"{settingsdir}/Usernames.txt";
@@ -20,12 +22,24 @@ namespace AccManagerV69
         public static string steamdir = GetSteamDir();
         public static bool hidepassword = GetHidePassword();
         public static int hidepassworddelay = GetHidePasswordDelay();
-        public static string encryption_key = GetEncryptionKey(); //J!IUDIUHIUERIUFIERFUOERUHFEOROWPED(&^&*()
+        public static string encryption_key = GetEncryptionKey();
 
-        private static string[] DefaultSettings = { "false", "500", "J!IUDIUHIUERIUFIERFUOERUHFEOROWPED(&^&*()" };
+
+        static void CheckSettings()
+        {
+            if (File.Exists(settingsfile))
+            {
+                string[] file = File.ReadAllLines(settingsfile);
+                if (file.Length != 3)
+                {
+                    File.WriteAllLines(settingsfile, DefaultSettings);
+                }
+            }
+        }
 
         static string GetEncryptionKey()
         {
+            CheckSettings();
             if (File.Exists(settingsfile))
             {
                 string encryptionkey = File.ReadAllLines(settingsfile)[2];
@@ -40,6 +54,7 @@ namespace AccManagerV69
 
         static bool GetHidePassword()
         {
+            CheckSettings();
             if (File.Exists(settingsfile))
             {
                 string hidepasswordcontents = File.ReadAllLines(settingsfile)[0];
@@ -54,6 +69,7 @@ namespace AccManagerV69
 
         static int GetHidePasswordDelay()
         {
+            CheckSettings();
             if (File.Exists(settingsfile))
             {
                 return Convert.ToInt16(File.ReadAllLines(settingsfile)[1]);

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AccManagerV69
 {
@@ -15,7 +16,8 @@ namespace AccManagerV69
         {
             if (text == "")
             {
-                return "Password Empty!";
+                MessageBox.Show("Password Empty!");
+                return "";
             }
             string result;
             try
@@ -55,7 +57,8 @@ namespace AccManagerV69
             }
             catch
             {
-                result = "Error Encrypting!";
+                MessageBox.Show("Encryption Key Wrong!");
+                return "";
             }
             return result;
         }
@@ -64,7 +67,8 @@ namespace AccManagerV69
         {
             if (text == "")
             {
-                return "Password Empty!";
+                MessageBox.Show("Password Empty!");
+                return "";
             }
             string result;
             try
@@ -105,7 +109,8 @@ namespace AccManagerV69
             }
             catch
             {
-                result = "Error Decrypting!";
+                MessageBox.Show("Encryption Key Wrong!");
+                return "";
             }
             return result;
         }
